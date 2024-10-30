@@ -1,0 +1,47 @@
+/* Defining Global Variables */
+:root {
+	/* Screen Sizes */
+	--sm: 640px;
+	--md: 768px;
+	--lg: 1024px;
+	--xl: 1280px;
+	--2xl: 1536px;
+
+	/* Light / Dark */
+	color-scheme: light dark;
+
+	/* Light Color Scheme */
+	--light-bg: #ebebeb;
+	--light-text: #000000;
+
+	/* Dark Color Scheme */
+	--dark-bg: #000000;
+	--dark-text: #ebebeb;
+}
+
+/* Global Styles */
+body {
+	/* Spacing */
+	margin: 0;
+
+	/* Text */
+	font-family: sans-serif;
+	color: light-dark(var(--light-text), var(--dark-text));
+
+	/* BG color */
+	background-color: light-dark(var(--light-bg), var(--dark-bg));
+}
+
+/* Used as a container for main content of all pages */
+.main-container {
+	/* Spacing */
+	margin: 0 auto;
+
+	/* Sizing */
+	max-width: var(--lg);
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}

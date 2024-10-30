@@ -1,0 +1,58 @@
+<header id="header-container">
+	<a id="nav-main-link" href="/">Welcome!</a>
+	<nav>
+		<!-- Hamburger Menu -->
+		<button class="hamburger-button"> Hamburger </button>
+
+		<!-- Nav Links -->
+		<ul>
+			<li><a>Posts</a></li>
+			<li><a>Tags</a></li>
+			<li><a>About</a></li>
+		</ul>
+	</nav>
+</header>
+
+<style>
+	/* Main Nav Container */
+	#header-container {
+		/* Spacing */
+		margin: 0 auto;
+
+		/* Sizing */
+		max-width: var(--lg);
+
+		/* Flex Box */
+		display: flex;
+		justify-content: space-between;
+	}
+
+	#nav-main-link {
+		/* Text */
+		font-size: 35px;
+	}
+
+	nav ul {
+		/* Spacing */
+		margin: 0;
+
+		/* Flex Box */
+		display: flex;
+		gap: 10px;
+	}
+
+	nav ul li {
+		/* Text */
+		font-size: 20px;
+
+		/* Remove Bullet Points */
+		list-style-type: none;
+	}
+
+	/* Media Queries */
+	@media (min-width: 640px) {
+		.hamburger-button {
+			display: none;
+		}
+	}
+</style>
