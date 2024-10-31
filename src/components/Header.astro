@@ -1,10 +1,32 @@
 <header id="header-container">
-	<a id="nav-main-link" href="/">Welcome!</a>
-	<nav>
+	<a id="home-link" href="/">Welcome!</a>
+	<nav class="nav-container">
 		<!-- Hamburger Menu -->
-		<button class="hamburger-button"> Hamburger </button>
+		<button
+			class="hamburger-button"
+			aria-label="Open Menu"
+			aria-expanded="false"
+			aria-controls="menu-items">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="24"
+				height="24"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="1.5"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				class="menu-icon">
+				<line x1="7" y1="12" x2="21" y2="12" class="line"></line>
+				<line x1="3" y1="6" x2="21" y2="6" class="line"></line>
+				<line x1="12" y1="18" x2="21" y2="18" class="line"></line>
+				<line x1="18" y1="6" x2="6" y2="18" class="close"></line>
+				<line x1="6" y1="6" x2="18" y2="18" class="close"></line>
+			</svg>
+		</button>
 
-		<!-- Nav Links -->
+		<!-- Main Nav Links -->
 		<ul>
 			<li><a>Posts</a></li>
 			<li><a>Tags</a></li>
@@ -32,7 +54,7 @@
 		border-bottom: 1px solid rgb(211, 211, 211);
 	}
 
-	#nav-main-link {
+	#home-link {
 		/* Text */
 		font-size: 35px;
 	}
@@ -43,7 +65,14 @@
 
 		/* Flex Box */
 		display: flex;
+		flex-direction: column;
 		gap: 25px;
+	}
+
+	@media (min-width: 640px) {
+		nav ul {
+			flex-direction: row;
+		}
 	}
 
 	nav ul li {
@@ -54,10 +83,69 @@
 		list-style-type: none;
 	}
 
-	/* Media Queries */
+	.hamburger-button {
+		background: none;
+		color: inherit;
+		border: none;
+		padding: 0;
+		font: inherit;
+		cursor: pointer;
+		outline: inherit;
+	}
+
 	@media (min-width: 640px) {
 		.hamburger-button {
 			display: none;
 		}
 	}
+
+	/* Mobile SVG Icon */
+	.menu-icon .line {
+		opacity: 1;
+		transition: opacity 0.2s ease-in-out;
+	}
+
+	.menu-icon .close {
+		opacity: 0; /* Start hidden */
+		transition: opacity 0.2s ease-in-out;
+	}
+
+	/* When active, hide lines and show close icon */
+	.menu-icon.is-active .line {
+		opacity: 0;
+	}
+
+	.menu-icon.is-active .close {
+		opacity: 1;
+	}
 </style>
+
+<script>
+	const toggleNav = () => {
+		const hamburgerButton = document.querySelector(".hamburger-button")
+		const svgIcon = document.querySelector(".menu-icon")
+		const mobileNavLinks = document.querySelector(".mobile-nav-links")
+
+		hamburgerButton?.addEventListener("click", () => {
+			const menuExpanded =
+				hamburgerButton.getAttribute("aria-expanded") === "true"
+
+			svgIcon?.classList.toggle("is-active")
+
+			hamburgerButton.setAttribute(
+				"aria-expanded",
+				menuExpanded ? "false" : "true"
+			)
+
+			hamburgerButton.setAttribute(
+				"aria-label",
+				menuExpanded ? "Open Menu" : "Close Menu"
+			)
+			mobileNavLinks?.classList.toggle("hidden")
+		})
+	}
+
+	toggleNav()
+
+	document.addEventListener("astro:after-swap", toggleNav)
+</script>
