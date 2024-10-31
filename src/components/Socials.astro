@@ -1,0 +1,24 @@
+---
+import socialIcons from "../assets/socialIcons"
+import { SOCIALDATA } from "../config"
+---
+
+<div class="social-icons">
+	{
+		SOCIALDATA.map((socialInfo) => (
+			<a href={socialInfo.href} title={socialInfo.linkTitle}>
+				<Fragment set:html={socialIcons[socialInfo.name]} />
+			</a>
+		))
+	}
+</div>
+
+<style>
+	.social-icons {
+		/* Flex Box */
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+	}
+</style>

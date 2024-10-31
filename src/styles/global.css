@@ -13,16 +13,19 @@
 	/* Light Color Scheme */
 	--light-bg: #ebebeb;
 	--light-text: #000000;
+	--light-accent: #006cac;
 
 	/* Dark Color Scheme */
 	--dark-bg: #000000;
 	--dark-text: #ebebeb;
+	--dark-accent: #006cac;
 }
 
 /* Global Styles */
 body {
 	/* Spacing */
 	margin: 0;
+	padding: 13px;
 
 	/* Text */
 	font-family: sans-serif;
@@ -32,16 +35,43 @@ body {
 	background-color: light-dark(var(--light-bg), var(--dark-bg));
 }
 
+/* Media Queries */
+@media (min-width: 640px) {
+	body {
+		padding: 0;
+	}
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
 /* Used as a container for main content of all pages */
 .main-container {
 	/* Spacing */
 	margin: 0 auto;
 
 	/* Sizing */
-	max-width: var(--lg);
+	max-width: var(--md);
 }
 
-a {
-	text-decoration: none;
-	color: inherit;
+/* SVG Icon of the socials */
+.icon-tabler {
+	/* Sizing */
+	height: 1.5rem;
+	width: 1.5rem;
+
+	/* Transform */
+	transform: scale(1.25);
+
+	/* SVG Attributes */
+	fill: transparent;
+	stroke: light-dark(var(--light-text), var(--dark-text));
+	stroke-width: 2;
+}
+
+.icon-tabler:hover {
+	/* On Hover, change color to accent */
+	stroke: light-dark(var(--light-accent), var(--dark-accent));
 }

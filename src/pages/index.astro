@@ -1,6 +1,7 @@
 ---
 // Components
 import Header from "../components/Header.astro"
+import Socials from "../components/Socials.astro"
 
 import Layout from "../layouts/Layout.astro"
 ---
@@ -8,6 +9,48 @@ import Layout from "../layouts/Layout.astro"
 <Layout title="Kyle Hu">
 	<Header />
 	<main class="main-container">
-		<>Welcome to my Portfolio</>
+		<section class="hero">
+			<h1>Kyle Hu</h1>
+			<p>
+				I am a software engineer who is pursuing full stack development.
+				I also enjoy writing blogs about leetcode and documenting my
+				projects. Thank you for looking at my profile.
+			</p>
+
+			<!-- Social Stuff -->
+			<div class="social-container">
+				<p>Links:</p>
+				<Socials />
+			</div>
+		</section>
 	</main>
 </Layout>
+
+<style>
+	.hero {
+		/* Spacing */
+		padding: 40px 0;
+	}
+
+	.social-container {
+		/* Flex Box */
+		display: flex;
+		align-items: center;
+		gap: 5px;
+	}
+
+	h1 {
+		/* Spacing */
+		margin: 0;
+
+		/* Text */
+		font-size: 50px;
+	}
+
+	p {
+		/* Text */
+		font-size: 20px;
+		font-weight: 100;
+		line-height: 1.5;
+	}
+</style>
