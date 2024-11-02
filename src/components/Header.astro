@@ -1,6 +1,6 @@
 <header id="header-container">
-	<a id="home-link" href="/">Welcome!</a>
 	<nav class="nav-container">
+		<a class="home-link" href="/">Welcome!</a>
 		<!-- Hamburger Menu -->
 		<button
 			class="hamburger-button"
@@ -27,8 +27,8 @@
 		</button>
 
 		<!-- Main Nav Links -->
-		<ul>
-			<li><a>Posts</a></li>
+		<ul class="nav-links">
+			<li><a href="/posts">Posts</a></li>
 			<li><a>Tags</a></li>
 			<li><a>About</a></li>
 		</ul>
@@ -36,7 +36,7 @@
 </header>
 
 <style>
-	/* Main Nav Container */
+	/* Main Container */
 	#header-container {
 		/* Spacing */
 		margin: 0 auto;
@@ -46,41 +46,77 @@
 		/* Sizing */
 		max-width: var(--md);
 
-		/* Flex Box */
-		display: flex;
-		justify-content: space-between;
-
 		/* Border */
 		border-bottom: 1px solid rgb(211, 211, 211);
 	}
 
-	#home-link {
-		/* Text */
-		font-size: 35px;
+	/* Actual Nav Container 
+        - Contains the home button, nav links, and the menu button
+    */
+	.nav-container {
+		/* Grid */
+		display: grid;
+		grid-template-columns: 1fr auto;
+
+		/* Flex Box */
+		justify-content: center;
+		align-items: center;
 	}
 
-	nav ul {
-		/* Spacing */
-		margin: 0;
+	/* Home Button in Navbar (Mobile)*/
+	.home-link {
+		/* Text */
+		font-size: 22px;
+	}
 
+	/* Desktop Sizes */
+	@media (min-width: 640px) {
+		.home-link {
+			font-size: 25px;
+		}
+	}
+
+	/* Nav bar cint */
+	.nav-links {
 		/* Flex Box */
 		display: flex;
 		flex-direction: column;
-		gap: 25px;
+		justify-content: center;
+		gap: 10px;
+
+		/* Text */
+		text-align: center;
+	}
+
+	@media (max-width: 640px) {
+		.nav-links {
+			display: none;
+			gap: 30px;
+		}
+
+		.nav-links.open {
+			display: flex;
+		}
 	}
 
 	@media (min-width: 640px) {
-		nav ul {
+		.nav-links {
 			flex-direction: row;
 		}
 	}
 
-	nav ul li {
+	.nav-links li {
 		/* Text */
-		font-size: 20px;
+		font-size: 18px;
 
 		/* Remove Bullet Points */
 		list-style-type: none;
+	}
+
+	@media (min-width: 640px) {
+		.nav-links li {
+			font-size: 22px;
+		}
 	}
 
 	.hamburger-button {
@@ -88,9 +124,7 @@
 		color: inherit;
 		border: none;
 		padding: 0;
-		font: inherit;
 		cursor: pointer;
-		outline: inherit;
 	}
 
 	@media (min-width: 640px) {
@@ -124,7 +158,7 @@
 	const toggleNav = () => {
 		const hamburgerButton = document.querySelector(".hamburger-button")
 		const svgIcon = document.querySelector(".menu-icon")
-		const mobileNavLinks = document.querySelector(".mobile-nav-links")
+		const navLinks = document.querySelector(".nav-links")
 
 		hamburgerButton?.addEventListener("click", () => {
 			const menuExpanded =
@@ -141,7 +175,8 @@
 				"aria-label",
 				menuExpanded ? "Open Menu" : "Close Menu"
 			)
-			mobileNavLinks?.classList.toggle("hidden")
+
+			navLinks?.classList.toggle("open")
 		})
 	}
 
