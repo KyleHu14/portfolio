@@ -1,0 +1,26 @@
+---
+import type { CollectionEntry } from "astro:content"
+
+export interface Props {
+	href?: string
+	blogInfo: CollectionEntry<"blog">["data"]
+}
+
+const { href, blogInfo } = Astro.props
+---
+
+<li>
+	<a href={href}>
+		<h2>{blogInfo.title}</h2>
+	</a>
+	<p>{blogInfo.pubDatetime} | {blogInfo.modDatetime}</p>
+	<p>{blogInfo.description}</p>
+</li>
+
+<style>
+	h2 {
+		/* Text */
+		font-weight: 100;
+		color: light-dark(var(--light-accent), var(--dark-accent));
+	}
+</style>

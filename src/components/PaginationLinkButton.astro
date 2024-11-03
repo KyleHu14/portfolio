@@ -1,0 +1,32 @@
+---
+export interface Props {
+	href: string
+	className?: string
+	ariaLabel?: string
+	title?: string
+	disabled?: boolean
+}
+
+const { href, className = "", ariaLabel, title, disabled = false } = Astro.props
+---
+
+{
+	disabled ? (
+		<span class="container" title={title} aria-disabled={disabled}>
+			<slot />
+		</span>
+	) : (
+		<a class="container" href={href} aria-label={ariaLabel} title={title}>
+			<slot />
+		</a>
+	)
+}
+
+<style>
+	.container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 1px;
+	}
+</style>

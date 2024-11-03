@@ -1,0 +1,47 @@
+---
+// Components
+import Header from "../../components/Header.astro"
+import Pagination from "../../components/Pagination.astro"
+import BlogCard from "../../components/BlogCard.astro"
+
+// Layout
+import Layout from "../../layouts/Layout.astro"
+
+// Astro
+import type { GetStaticPaths } from "astro"
+import { getCollection } from "astro:content"
+
+export const getStaticPaths = (async ({ paginate }) => {
+	const posts = await getCollection("blog", ({ data }) => !data.draft)
+	return paginate(posts, { pageSize: 3 })
+}) satisfies GetStaticPaths
+
+const { page } = Astro.props
+---
+
+<Layout title="Posts">
+	<Header />
+	<main class="main-container">
+		<h1>Posts</h1>
+		<p>Various blogs that I have written.</p>
+		<ul>
+			{
+				page.data.map(({ data, slug }) => (
+					<BlogCard href={slug} blogInfo={data} />
+				))
+			}
+		</ul>
+		<Pagination page={page} />
+	</main>
+</Layout>
+
+<style>
+	p {
+		font-size: 18px;
+	}
+
+	ul {
+		margin: 0;
+		padding: 0;
+	}
+</style>

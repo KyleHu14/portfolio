@@ -78,3 +78,8 @@ a {
 	/* On Hover rotate icon & maintain size*/
 	transform: rotate(10deg) scale(1.25);
 }
+
+li {
+	/* Remove Bullet Points */
+	list-style-type: none;
+}
