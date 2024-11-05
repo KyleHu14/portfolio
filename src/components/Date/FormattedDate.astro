@@ -1,0 +1,30 @@
+---
+// Time Util Functions
+import getFormattedDate from "../../utils/getDate"
+import getFormattedTime from "../../utils/getTime"
+
+export interface Props {
+	publishDate: string | Date
+	updateDate?: string | Date
+}
+
+const { publishDate, updateDate } = Astro.props
+---
+
+{
+	updateDate && updateDate > publishDate ? (
+		<p>Updated : {getFormattedDate(updateDate)}</p>
+	) : (
+		<p>Published : {getFormattedDate(publishDate)} </p>
+	)
+}
+
+<style>
+	p {
+		/* Spacing */
+		margin: 0;
+
+		/* Text */
+		color: rgb(87, 87, 87);
+	}
+</style>

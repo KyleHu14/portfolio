@@ -22,15 +22,18 @@ const { page } = Astro.props
 <Layout title="Posts">
 	<Header />
 	<main class="main-container">
-		<h1>Posts</h1>
-		<p>Various blogs that I have written.</p>
-		<ul>
-			{
-				page.data.map(({ data, slug }) => (
-					<BlogCard href={slug} blogInfo={data} />
-				))
-			}
-		</ul>
+		<div class="posts-container">
+			<h1>Posts</h1>
+			<p>Various blogs that I have written.</p>
+			<ul>
+				{
+					page.data.map(({ data, slug }) => (
+						<BlogCard href={slug} blogInfo={data} />
+					))
+				}
+			</ul>
+		</div>
+
 		<Pagination page={page} />
 	</main>
 </Layout>
@@ -41,7 +44,24 @@ const { page } = Astro.props
 	}
 
 	ul {
+		/* Spacing */
 		margin: 0;
 		padding: 0;
+
+		/* Flex Box */
+		display: flex;
+		flex-direction: column;
+		gap: 25px;
+	}
+
+	.main-container {
+		display: flex;
+		flex-direction: column;
+
+		height: 80vh;
+	}
+
+	.posts-container {
+		flex-grow: 1;
 	}
 </style>

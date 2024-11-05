@@ -1,5 +1,10 @@
 ---
+// Utils
+import getFormattedDate from "../utils/getDate"
+
+// Astro
 import type { CollectionEntry } from "astro:content"
+import FormattedDate from "./Date/FormattedDate.astro"
 
 export interface Props {
 	href?: string
@@ -13,14 +18,50 @@ const { href, blogInfo } = Astro.props
 	<a href={href}>
 		<h2>{blogInfo.title}</h2>
 	</a>
-	<p>{blogInfo.pubDatetime} | {blogInfo.modDatetime}</p>
+	<FormattedDate
+		updateDate={blogInfo.modDatetime}
+		publishDate={blogInfo.pubDatetime}
+	/>
 	<p>{blogInfo.description}</p>
 </li>
 
 <style>
+	li {
+		display: flex;
+		flex-direction: column;
+		gap: 7px;
+	}
+
 	h2 {
+		/* Spacing */
+		margin: 0;
+
 		/* Text */
-		font-weight: 100;
+		font-weight: 400;
+		font-size: 22px;
 		color: light-dark(var(--light-accent), var(--dark-accent));
+	}
+
+	a {
+		/* Spacing */
+		margin: 0;
+	}
+
+	a:hover {
+		text-decoration: underline;
+		text-decoration-style: dotted;
+		text-underline-offset: 4px;
+		text-decoration-color: light-dark(
+			var(--light-accent),
+			var(--dark-accent)
+		);
+	}
+
+	p {
+		/* Spacing */
+		margin: 0;
+
+		/* Font Size */
+		font-size: 17px;
 	}
 </style>
