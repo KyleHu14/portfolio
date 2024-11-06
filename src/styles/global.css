@@ -27,7 +27,6 @@ body {
 	margin: 0;
 	padding: 13px;
 
-	/* Removal of Scroll */
 	overflow-y: scroll;
 
 	/* Text */
@@ -88,11 +87,6 @@ a {
 	transform: rotate(10deg) scale(1.25);
 }
 
-li {
-	/* Remove Bullet Points */
-	list-style-type: none;
-}
-
 .markdown img {
 	height: auto;
 	width: 100%;
@@ -105,4 +99,28 @@ li {
 
 .markdown p {
 	line-height: 30px;
+}
+
+.markdown h2 {
+	margin-top: 40px;
+}
+
+.markdown pre {
+	/* Spacing */
+	padding: 10px;
+
+	/* Border */
+	border-radius: 15px;
+}
+
+.markdown li {
+	margin-top: 15px;
+}
+
+.markdown li a:hover {
+	color: light-dark(var(--light-accent), var(--dark-accent));
+}
+
+.markdown summary {
+	cursor: pointer;
 }
