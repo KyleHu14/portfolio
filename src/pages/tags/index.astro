@@ -4,11 +4,38 @@ import Layout from "../../layouts/Layout.astro"
 
 // Components
 import Header from "../../components/Header.astro"
+import Tag from "../../components/Tag.astro"
 
 // Tag Util Function
+import getTags from "../../utils/getTags"
+
+// Astro
+import { getCollection } from "astro:content"
+
+const posts = await getCollection("blog")
+let tags = getTags(posts)
 ---
 
 <Layout title="Tags">
 	<Header />
-	<main class="main-container"></main>
+	<main class="main-container">
+		<h1>Tags</h1>
+		<p>Sort my blog posts by tags.</p>
+		<ul>
+			{tags.map((tagObj) => <Tag slug={tagObj.slug}, originalName={tagObj.originalName} />)}
+		</ul>
+	</main>
 </Layout>
+
+<style>
+    ul {
+        /* Flex Box */
+        display:flex;
+        flex-wrap:wrap;
+        gap:15px;
+
+        /* Spacing */
+        margin:0;
+        padding:0;
+    }
+</style>

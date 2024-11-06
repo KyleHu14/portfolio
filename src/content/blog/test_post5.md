@@ -6,6 +6,9 @@ featured: false
 tags:
     - rendering
     - docs
+    - leetcode
+    - quicksort
+    - partioning
 description: How to use LaTeX equations in your Markdown files for AstroPaper.
 ---
 

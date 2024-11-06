@@ -1,0 +1,23 @@
+---
+export interface Props {
+	slug: string
+	originalName: string
+}
+const { slug, originalName } = Astro.props
+---
+
+<li>
+	<a href=`/tags/${slug}`>
+		#<span>{originalName}</span>
+	</a>
+</li>
+
+<style>
+	li {
+		/* Text */
+		font-size: 24px;
+
+		/* Remove Bullet Points */
+		list-style-type: none;
+	}
+</style>
