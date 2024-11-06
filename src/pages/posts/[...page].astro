@@ -28,7 +28,7 @@ const { page } = Astro.props
 			<ul>
 				{
 					page.data.map(({ data, slug }) => (
-						<BlogCard href={slug} blogInfo={data} />
+						<BlogCard href={`/posts/${slug}`} blogInfo={data} />
 					))
 				}
 			</ul>

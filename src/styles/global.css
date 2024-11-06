@@ -28,7 +28,12 @@ body {
 	padding: 13px;
 
 	/* Text */
-	font-family: sans-serif;
+
+	font-family: "Raleway", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+
 	color: light-dark(var(--light-text), var(--dark-text));
 
 	/* BG color */
@@ -82,4 +87,13 @@ a {
 li {
 	/* Remove Bullet Points */
 	list-style-type: none;
+}
+
+/* Markdown Styling */
+
+.markdown img {
+	height: auto;
+	max-width: 100%;
+	margin-left: auto;
+	margin-right: auto;
 }
