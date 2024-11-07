@@ -1,0 +1,57 @@
+---
+// Layout
+import Layout from "../../../layouts/Layout.astro"
+
+// Components
+import Header from "../../../components/Header.astro"
+import BlogCard from "../../../components/BlogCard.astro"
+import Pagination from "../../../components/Pagination.astro"
+
+// Astro Stuff
+import type { GetStaticPathsOptions } from "astro"
+import { getCollection } from "astro:content"
+
+// Util
+import getTags from "../../../utils/getTags"
+import getPostsByTag from "../../../utils/getPostsByTag"
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+	const posts = await getCollection("blog")
+	const tags = getTags(posts)
+
+	return tags.flatMap(({ slug, originalName }) => {
+		const tagPosts = getPostsByTag(posts, slug)
+
+		return paginate(tagPosts, {
+			params: { slug },
+			props: { originalName },
+			pageSize: 3,
+		})
+	})
+}
+
+const params = Astro.params
+const { slug } = params
+const { page, originalName } = Astro.props
+---
+
+<Layout>
+	<Header />
+	<main class="main-container">
+		<h1>Posts Sorted by : {originalName}</h1>
+		<p>Viewing all posts tagged with {originalName}</p>
+		<ul class="post-list-container">
+			{
+				page.data.map(({ data, slug }) => (
+					<BlogCard href={`/posts/${slug}`} blogInfo={data} />
+				))
+			}
+		</ul>
+		<Pagination page={page} />
+	</main>
+</Layout>
+
+<style>
+	li {
+	}
+</style>

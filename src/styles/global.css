@@ -58,6 +58,26 @@ a {
 	color: inherit;
 }
 
+ul {
+	margin: 0;
+}
+
+/* Used for Displaying a list of Posts */
+.post-list-container {
+	/* Spacing */
+	padding: 0;
+
+	/* Flex Box */
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+}
+
+.post-list-container li {
+	/* Remove Bullet Points */
+	list-style-type: none;
+}
+
 /* Used as a container for main content of all pages */
 .main-container {
 	/* Spacing */

@@ -20,4 +20,8 @@ const { slug, originalName } = Astro.props
 		/* Remove Bullet Points */
 		list-style-type: none;
 	}
+
+	li:hover {
+		color: light-dark(var(--light-accent), var(--dark-accent));
+	}
 </style>
