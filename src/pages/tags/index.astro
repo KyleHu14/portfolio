@@ -22,7 +22,7 @@ let tags = getTags(posts)
 		<h1>Tags</h1>
 		<p>Sort my blog posts by tags.</p>
 		<ul>
-			{tags.map((tagObj) => <Tag slug={tagObj.slug}, originalName={tagObj.originalName} />)}
+			{tags.map((tagObj) => <Tag slug={tagObj.slugTag}, originalName={tagObj.originalTag} />)}
 		</ul>
 	</main>
 </Layout>

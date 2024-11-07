@@ -124,6 +124,9 @@ ul {
 
 .markdown p {
 	line-height: 30px;
+
+	/* Text */
+	font-size: 17px;
 }
 
 .markdown h2 {

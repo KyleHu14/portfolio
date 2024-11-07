@@ -4,12 +4,6 @@ import { slugifyStr } from "./slugify"
 // Astro
 import type { CollectionEntry } from "astro:content"
 
-// Interface for Tag Object
-interface Tag {
-	slug: string
-	originalName: string
-}
-
 const getTags = (posts: CollectionEntry<"blog">[]) => {
 	// Key : originalName, Val : slug
 	const tagMap = new Map<string, string>()
@@ -24,10 +18,10 @@ const getTags = (posts: CollectionEntry<"blog">[]) => {
 			}
 		})
 
-	return Array.from(tagMap, ([originalName, slug]) => ({
-		slug,
-		originalName,
-	})).sort((a, b) => a.slug.localeCompare(b.slug))
+	return Array.from(tagMap, ([originalTag, slugTag]) => ({
+		slugTag,
+		originalTag,
+	})).sort((a, b) => a.slugTag.localeCompare(b.slugTag))
 }
 
 export default getTags

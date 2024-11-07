@@ -19,27 +19,25 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
 	const posts = await getCollection("blog")
 	const tags = getTags(posts)
 
-	return tags.flatMap(({ slug, originalName }) => {
-		const tagPosts = getPostsByTag(posts, slug)
+	return tags.flatMap(({ slugTag, originalTag }) => {
+		const tagPosts = getPostsByTag(posts, slugTag)
 
 		return paginate(tagPosts, {
-			params: { slug },
-			props: { originalName },
+			params: { tag: slugTag },
+			props: { originalTag },
 			pageSize: 3,
 		})
 	})
 }
 
-const params = Astro.params
-const { slug } = params
-const { page, originalName } = Astro.props
+const { page, originalTag } = Astro.props
 ---
 
 <Layout>
 	<Header />
 	<main class="main-container">
-		<h1>Posts Sorted by : {originalName}</h1>
-		<p>Viewing all posts tagged with {originalName}</p>
+		<h1>Posts Sorted by : {originalTag}</h1>
+		<p>Viewing all posts tagged with {originalTag}</p>
 		<ul class="post-list-container">
 			{
 				page.data.map(({ data, slug }) => (
@@ -50,8 +48,4 @@ const { page, originalName } = Astro.props
 		<Pagination page={page} />
 	</main>
 </Layout>
-
-<style>
-	li {
-	}
-</style>
+<style></style>
