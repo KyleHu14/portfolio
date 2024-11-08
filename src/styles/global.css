@@ -145,7 +145,15 @@ ul {
 	margin-top: 15px;
 }
 
-.markdown li a:hover {
+.markdown a {
+	color: light-dark(var(--light-accent), var(--dark-accent));
+}
+
+.markdown details li a {
+	color: light-dark(var(--light-text), var(--dark-text));
+}
+
+.markdown details li a:hover {
 	color: light-dark(var(--light-accent), var(--dark-accent));
 }
 

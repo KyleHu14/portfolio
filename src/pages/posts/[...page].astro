@@ -4,6 +4,9 @@ import Header from "../../components/Header.astro"
 import Pagination from "../../components/Pagination.astro"
 import BlogCard from "../../components/BlogCard.astro"
 
+// Utils
+import getSortedPosts from "../../utils/getSortedPosts"
+
 // Layout
 import Layout from "../../layouts/Layout.astro"
 
@@ -13,7 +16,8 @@ import { getCollection } from "astro:content"
 
 export const getStaticPaths = (async ({ paginate }) => {
 	const posts = await getCollection("blog", ({ data }) => !data.draft)
-	return paginate(posts, { pageSize: 3 })
+	const sortedPosts = getSortedPosts(posts)
+	return paginate(sortedPosts, { pageSize: 4 })
 }) satisfies GetStaticPaths
 
 const { page } = Astro.props

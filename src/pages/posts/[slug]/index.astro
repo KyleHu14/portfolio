@@ -6,6 +6,9 @@ import { getCollection } from "astro:content"
 import Layout from "../../../layouts/Layout.astro"
 import Header from "../../../components/Header.astro"
 
+// Components
+import FormattedDate from "../../../components/Date/FormattedDate.astro"
+
 export async function getStaticPaths() {
 	const posts = await getCollection("blog", ({ data }) => !data.draft)
 
@@ -22,12 +25,26 @@ const { post } = Astro.props
 const { Content } = await post.render()
 ---
 
-<Layout>
+<Layout title={`Posts | ${post.data.title}`}>
 	<Header />
 	<main class="main-container">
 		<h1>{post.data.title}</h1>
+		<FormattedDate
+			updateDate={post.data.modDatetime}
+			publishDate={post.data.pubDatetime}
+		/>
 		<article class="markdown">
 			<Content />
 		</article>
 	</main>
 </Layout>
+
+<style>
+	h1 {
+		color: light-dark(var(--light-accent), var(--dark-accent));
+	}
+
+	.main-container {
+		padding-bottom: 80px;
+	}
+</style>

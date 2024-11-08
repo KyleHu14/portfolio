@@ -2,13 +2,31 @@
 // Components
 import Header from "../components/Header.astro"
 import Socials from "../components/Socials.astro"
+import Hr from "../components/Hr.astro"
+import BlogCard from "../components/BlogCard.astro"
 
+// Layout
 import Layout from "../layouts/Layout.astro"
+
+// Utils
+import getSortedPosts from "../utils/getSortedPosts"
+
+// Astro
+import { getCollection } from "astro:content"
+
+// Get posts
+const posts = await getCollection("blog")
+const sortedPosts = getSortedPosts(posts)
+
+const workPosts = sortedPosts.filter(
+	({ data }) => data.tags && data.tags.includes("work")
+)
 ---
 
 <Layout title="Kyle Hu">
 	<Header />
 	<main class="main-container">
+		<!-- Main Hero -->
 		<section class="hero">
 			<h1>Kyle Hu</h1>
 			<p>
@@ -23,13 +41,31 @@ import Layout from "../layouts/Layout.astro"
 				<Socials />
 			</div>
 		</section>
+
+		<Hr />
+
+		<!-- Experience -->
+		<section>
+			<h2>Experience</h2>
+		</section>
+
+		<!-- Projects -->
+		<section>
+			<ul class="post-list-container">
+				{
+					workPosts.map(({ data, slug }) => (
+						<BlogCard href={`/posts/${slug}`} blogInfo={data} />
+					))
+				}
+			</ul>
+		</section>
 	</main>
 </Layout>
 
 <style>
 	.hero {
 		/* Spacing */
-		padding: 40px 0;
+		margin-top: 40px;
 	}
 
 	.social-container {
