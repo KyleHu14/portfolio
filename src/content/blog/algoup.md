@@ -1,6 +1,7 @@
 ---
 author: Kyle Hu
 pubDatetime: 2024-11-07T22:57:22Z
+modDatetime: 2024-11-08T22:57:22Z
 title: Algoup
 slug: "algoup"
 github: "https://github.com/KyleHu14/algoup"
@@ -29,6 +30,12 @@ FYI : I am still working on this project as of writing this article.
 I decided to build the website with Next.js, TailwindCSS, and host it on Vercel. I decided to go with Next.js to maximize SEO and I was fairly familiar with the framework.
 
 Prioritizing development speed, I opted for TailwindCSS to make development even faster and Vercel's hosting as it's easy and straightforward to host a Next.js app on Vercel.
+
+## Challenges
+
+The main challenges of this project has been working as a solo developer. I am responsible for almost every stage of the project.
+
+To create a page, I must process the material that needs to be displayed, design a page, implement it, ask for feedback, and report my progress. This is a fairly tedious process as a solo developer which has made it difficult to stay consistent.
 
 ## Result
 

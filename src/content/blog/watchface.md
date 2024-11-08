@@ -1,10 +1,11 @@
 ---
 author: Kyle Hu
 pubDatetime: 2024-11-07T22:57:22Z
+modDatetime: 2024-11-08T22:57:22Z
 title: Watchface
 slug: "watchface"
-github:
-link:
+github: "https://github.com/pielab-uci/watchface-website/tree/main"
+link: "https://watchface-website.vercel.app/"
 featured: true
 ogImage:
 tags:

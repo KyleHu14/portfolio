@@ -39,16 +39,17 @@ const { Content } = await post.render()
 
 		<!-- Links Section -->
 		<div class="blog-links">
+			Links :
 			{
 				post.data.github && (
-					<a href={post.data.github}>
+					<a href={post.data.github} title="View on Github">
 						<Fragment set:html={socialIcons["Github"]} />
 					</a>
 				)
 			}
 			{
 				post.data.link && (
-					<a href={post.data.link}>
+					<a href={post.data.link} title="View Link">
 						<Fragment set:html={socialIcons["Link"]} />
 					</a>
 				)
@@ -72,7 +73,10 @@ const { Content } = await post.render()
 
 		/* Flex Box */
 		display: flex;
-		gap: 10px;
+		gap: 16px;
+
+		/* Text */
+		font-size: 19px;
 	}
 
 	h1 {
