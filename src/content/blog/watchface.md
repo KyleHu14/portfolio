@@ -3,6 +3,8 @@ author: Kyle Hu
 pubDatetime: 2024-11-07T22:57:22Z
 title: Watchface
 slug: "watchface"
+github:
+link:
 featured: true
 ogImage:
 tags:
@@ -10,7 +12,7 @@ tags:
 description: "My thoughts on working on a research project at UCI."
 ---
 
-Watchface was the first somewhat professional project that I worked on at UCI. Watchface is a smartwatch customization interface designed to help users create layouts for their devices. My role was to continue development after the original developer graduated. The project became a pivotal learning experience for me. You can visit the site here and get an idea of how it works [here](https://watchface-website.vercel.app/).
+Watchface was the first somewhat professional project that I worked on at UCI. Watchface is a smartwatch customization interface designed to help users create layouts for their devices. My role was to continue development after the original developer graduated. The project became a pivotal learning experience for me. You can visit the site and get an idea of how it works [here](https://watchface-website.vercel.app/).
 
 I worked under a PHD student who was studying smartwatch customization. I was to continue working on a Vuejs website that was built by a student who had just graduated.
 

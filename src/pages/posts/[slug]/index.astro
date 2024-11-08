@@ -9,6 +9,9 @@ import Header from "../../../components/Header.astro"
 // Components
 import FormattedDate from "../../../components/Date/FormattedDate.astro"
 
+// Icons
+import socialIcons from "../../../assets/socialIcons"
+
 export async function getStaticPaths() {
 	const posts = await getCollection("blog", ({ data }) => !data.draft)
 
@@ -33,6 +36,25 @@ const { Content } = await post.render()
 			updateDate={post.data.modDatetime}
 			publishDate={post.data.pubDatetime}
 		/>
+
+		<!-- Links Section -->
+		<div class="blog-links">
+			{
+				post.data.github && (
+					<a href={post.data.github}>
+						<Fragment set:html={socialIcons["Github"]} />
+					</a>
+				)
+			}
+			{
+				post.data.link && (
+					<a href={post.data.link}>
+						<Fragment set:html={socialIcons["Link"]} />
+					</a>
+				)
+			}
+		</div>
+
 		<article class="markdown">
 			<Content />
 		</article>
@@ -40,11 +62,20 @@ const { Content } = await post.render()
 </Layout>
 
 <style>
-	h1 {
-		color: light-dark(var(--light-accent), var(--dark-accent));
-	}
-
 	.main-container {
 		padding-bottom: 80px;
+	}
+
+	.blog-links {
+		/* Spacing */
+		margin-top: 17px;
+
+		/* Flex Box */
+		display: flex;
+		gap: 10px;
+	}
+
+	h1 {
+		color: light-dark(var(--light-accent), var(--dark-accent));
 	}
 </style>

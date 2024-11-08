@@ -3,6 +3,8 @@ author: Kyle Hu
 pubDatetime: 2024-11-07T22:57:22Z
 title: Algoup
 slug: "algoup"
+github: "https://github.com/KyleHu14/algoup"
+link: "https://algoup-vert.vercel.app"
 featured:
 ogImage:
 tags:
@@ -18,7 +20,7 @@ I am currently working at a robotics startup called Algoup. My goal at Algoup is
 
 ## Premise
 
-Joining Algoup, I was tasked by the founder to build and host a company website. There was no required tech stack. The founder asked me that the website must offer a 360 view of products and have a modern theme. You can view the website [here](https://algoup-vert.vercel.app/).
+Joining Algoup, I was tasked by the founder design, build, and host a company website. There was no required tech stack. The founder asked me that the website must offer a 360 view of products and have a modern theme. You can view the website [here](https://algoup-vert.vercel.app/).
 
 FYI : I am still working on this project as of writing this article.
 
@@ -28,24 +30,10 @@ I decided to build the website with Next.js, TailwindCSS, and host it on Vercel.
 
 Prioritizing development speed, I opted for TailwindCSS to make development even faster and Vercel's hosting as it's easy and straightforward to host a Next.js app on Vercel.
 
-## Challenges
+## Result
 
-Working at Algoup, I mainly encountered personal challenges rather than challenges related to programming.
+So far, I've built about half of the website. The content that needs to be displayed is fairly complicated and I have to organize it in a way where it engaging.
 
-### 1. Managing deadlines & tasks.
+I still need to re design several pages, add about 5 new pages, and add responsive styling to over half of the website. As a solo developer who is also working another job, this is a fairly challenging task.
 
-I really struggled to manage and organize such a large scale project. I used tools like trello and notion but could not figure out a consistent way that I could track problems, features, and progress.
-
-### 2. Lack of coworkers / team members.
-
-I am the only web developer in this startup. Without other team members or developers to communicate and discuss, I felt isolated and did not have a sense of belonging to the company.
-
-### 3. Reporting progress to the founder.
-
-I did not have a consistent system of sending feedback to the founder. The founder was unsure where the development had progressed.
-
-## Overcoming Challenges
-
-I did not have a consistent system of communicating progress and tracking problems.
-
-## Conclusion
+I'm fairly proud of the progress I made so far. My main goal is to first organize the project's goals & deadlines. After this, I will be better able to make consistent progress on the site and finish it effectively.
