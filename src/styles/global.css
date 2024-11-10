@@ -14,6 +14,7 @@
 	--light-bg: #ebebeb;
 	--light-text: #000000;
 	--light-accent: #006cac;
+	--light-code: #3b3b3b;
 
 	/* Dark Color Scheme */
 	--dark-bg: #000000;
@@ -159,4 +160,8 @@ ul {
 
 .markdown summary {
 	cursor: pointer;
+}
+
+.markdown code {
+	background-color: gray;
 }
