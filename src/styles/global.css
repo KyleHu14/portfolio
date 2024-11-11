@@ -14,12 +14,13 @@
 	--light-bg: #ebebeb;
 	--light-text: #000000;
 	--light-accent: #006cac;
-	--light-code: #3b3b3b;
+	--light-code: #cdcdcd;
 
 	/* Dark Color Scheme */
 	--dark-bg: #000000;
 	--dark-text: #ebebeb;
 	--dark-accent: #006cac;
+	--dark-code: #cdcdcd;
 }
 
 /* Global Styles */
@@ -128,18 +129,27 @@ ul {
 
 	/* Text */
 	font-size: 17px;
+	font-weight: 500;
 }
 
 .markdown h2 {
 	margin-top: 40px;
 }
 
-.markdown pre {
+.markdown h3 {
+	margin-top: 30px;
+}
+
+/* Code Blocks */
+.markdown .astro-code {
+	/* Text */
+	font-size: 17px;
+
 	/* Spacing */
-	padding: 10px;
+	padding: 15px;
 
 	/* Border */
-	border-radius: 15px;
+	border-radius: 10px;
 }
 
 .markdown li {
@@ -162,6 +172,14 @@ ul {
 	cursor: pointer;
 }
 
-.markdown code {
-	background-color: gray;
+.markdown ol code,
+.markdown p code {
+	/* Spacing */
+	padding: 3px;
+
+	/* BG */
+	background-color: light-dark(var(--light-code), var(--dark-code));
+
+	/* Rounding Borders */
+	border-radius: 3px;
 }
