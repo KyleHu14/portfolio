@@ -25,6 +25,9 @@ const { publishDate, updateDate } = Astro.props
 		margin: 0;
 
 		/* Text */
-		color: rgb(87, 87, 87);
+		color: light-dark(
+			var(--light-text-secondary),
+			var(--dark-text-secondary)
+		);
 	}
 </style>

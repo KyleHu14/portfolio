@@ -13,14 +13,16 @@
 	/* Light Color Scheme */
 	--light-bg: #ebebeb;
 	--light-text: #000000;
-	--light-accent: #006cac;
+	--light-text-secondary: #5c6166;
+	--light-accent: #399ee6;
 	--light-code: #cdcdcd;
 
 	/* Dark Color Scheme */
-	--dark-bg: #000000;
-	--dark-text: #ebebeb;
-	--dark-accent: #006cac;
-	--dark-code: #cdcdcd;
+	--dark-bg: #242936;
+	--dark-text: #fcfcfc;
+	--dark-text-secondary: #c1d0dec5;
+	--dark-accent: #73d0ff;
+	--dark-code: #7989aa4a;
 }
 
 /* Global Styles */
@@ -150,6 +152,12 @@ ul {
 
 	/* Border */
 	border-radius: 10px;
+	border-width: 1px;
+	border-color: light-dark(var(--light-accent), var(--dark-accent));
+	border-style: solid;
+
+	/* BG Color */
+	background-color: #12151cb3 !important;
 }
 
 .markdown li {
