@@ -38,23 +38,23 @@ const { Content } = await post.render()
 		/>
 
 		<!-- Links Section -->
-		<div class="blog-links">
-			Links :
-			{
-				post.data.github && (
-					<a href={post.data.github} title="View on Github">
-						<Fragment set:html={socialIcons["Github"]} />
-					</a>
-				)
-			}
-			{
-				post.data.link && (
-					<a href={post.data.link} title="View Link">
-						<Fragment set:html={socialIcons["Link"]} />
-					</a>
-				)
-			}
-		</div>
+		{
+			(post.data.github || post.data.link) && (
+				<div class="blog-links">
+					Links:
+					{post.data.github && (
+						<a href={post.data.github} title="View on Github">
+							<Fragment set:html={socialIcons["Github"]} />
+						</a>
+					)}
+					{post.data.link && (
+						<a href={post.data.link} title="View Link">
+							<Fragment set:html={socialIcons["Link"]} />
+						</a>
+					)}
+				</div>
+			)
+		}
 
 		<article class="markdown">
 			<Content />
