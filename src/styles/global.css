@@ -14,7 +14,7 @@
 	--light-bg: #ebebeb;
 	--light-text: #000000;
 	--light-text-secondary: #5c6166;
-	--light-accent: #399ee6;
+	--light-accent: #1f8ad5;
 	--light-code: #cdcdcd;
 
 	/* Dark Color Scheme */
@@ -157,7 +157,7 @@ ul {
 	border-style: solid;
 
 	/* BG Color */
-	background-color: #12151cb3 !important;
+	/* background-color: #12151cb3 !important; */
 }
 
 .markdown li {
